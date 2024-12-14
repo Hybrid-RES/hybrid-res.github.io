@@ -1,6 +1,7 @@
 # Welcome to My GitHub Page
 
 Hello, world! This is my Sci-Website hosted with GitHub Pages.
+For more detailed info please use https://hybrid-res.github.io/
 
 ---
 
