@@ -48,3 +48,20 @@ ERA5 is identified by text and a site-authored weather/flow pictogram. No Copern
 ## SVG integration
 
 The copied SVG files were checked for scripts, event-handler attributes, `foreignObject`, external image/use resources and CSS imports. None were found. The original PVsyst SVG includes internal anchor wrappers with relative link targets; it is embedded only as an `img`, where those links are not interactive. Do not inline the vendor SVG as interactive page content.
+
+## Institute of Renewable Energy
+
+- Local image: `assets/images/credentials/ive-logo.png`.
+- Owner-supplied official source: <https://www.ive.org.ua/wp-content/uploads/Logo_IVE_new01-e1673001540943.png>.
+- The Institute of Renewable Energy of the National Academy of Sciences of Ukraine logo identifies the institution that conferred the owner's PhD degree. The original PNG bytes and proportions are preserved; the logo is displayed at a smaller size with CSS.
+
+## Uptime Institute and the owner's ATD certificate
+
+- Local logo: `assets/images/credentials/uptime-logo.png`.
+- Owner-supplied official logo source: <https://uptimeinstitute.com/images/uptime-institute-logo_135x50_v2023.png>.
+- Local certificate: `assets/images/credentials/sergii-uptime-atd.png`.
+- Owner-supplied official certificate source: <https://uptimeinstitute.com/foils/ATD/FOIL_ATD_3911.png>.
+- Certificate holder: Sergii Khomutov. Credential: Accredited Tier Designer. Date: 23 March 2021. Number: 3911.
+- Both original PNG files are preserved without visual changes. A small, proportionate certificate preview links to the full-resolution local image. No current validity period is inferred.
+
+Institution names and logos remain the property of their respective owners. These assets identify the institutions and the owner's qualifications; their inclusion does not imply sponsorship or endorsement of Hybrid-RES or HybridAEP.

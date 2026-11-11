@@ -26,13 +26,14 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | `assets/images/hybridaep-landscape.svg` | Original vector illustration; a conceptual site, not a simulation result |
 | `assets/images/favicon.svg` | Site identity and favicon |
 | `assets/images/tools/` | Official product marks used in the tools-and-data-sources section |
+| `assets/images/credentials/` | IVE and Uptime Institute logos, plus the owner's ATD certificate |
 | `THIRD_PARTY_NOTICES.md` | Asset origins, attribution and applicable third-party licences |
 
 The Ukrainian content is present in the HTML and remains usable without JavaScript. Each translated text element has a matching `data-en` attribute. The language switch also updates the document language, title, descriptions, navigation labels and cross-page links. English can be linked directly with `?lang=en`; an explicit switch is remembered locally when browser storage is available.
 
 ## Navigation and layout
 
-The header includes Home, About, Expertise, Projects, HybridAEP and Contact. A native **Sections / Розділи** disclosure lists every main block of the current page, including PhD, the project tools, modules, workflow and future development. On smaller screens, the full menu is scrollable and can be closed with Escape. The current page or section is highlighted as the visitor moves through the site.
+The header includes About, Expertise, Projects, HybridAEP and Contact. Home and About are one introduction with a full-length portrait and a shared education-and-credentials row. Existing `#intro`, `#about` and `#education` links remain available. A native **Sections / Розділи** disclosure lists every main block of the current page, including education and credentials, the project tools, modules, workflow and future development. On smaller screens, the full menu is scrollable and can be closed with Escape. The current page or section is highlighted as the visitor moves through the site.
 
 Section navigation IDs sit on the first inner content container, rather than the padded outer section. Native anchor scrolling uses one clearance based on the measured sticky-header height. Keep this arrangement when adding sections so padding and anchor offsets do not accumulate. Portraits retain their full proportions; their desktop size also responds to the available viewport height. Research text aligns with the top of its portrait.
 
@@ -49,6 +50,8 @@ HybridAEP is the author's developing engineering platform. The page introduces t
 The project presentation intentionally contains no private application URLs, source-code links, customer data or deployment details. The personal expertise section and the platform's implemented capabilities are separate.
 
 The personal profile includes the owner's supplied PhD qualification from the Institute of Renewable Energy of the National Academy of Sciences of Ukraine, in Electrical engineering, with Programme Subject Area Electrical power, electrical engineering and electromechanics. The profile also describes energy solutions for critical infrastructure, including telecommunications and data centres. No employer is named.
+
+The adjacent Uptime Institute card presents the owner's **Accredited Tier Designer (ATD)** certificate, number **3911**, dated **23 March 2021**, as shown in the original certificate. It does not assert a current validity period. Both credential cards have equal dimensions in the desktop grid and stack on smaller screens. The small certificate preview opens the unmodified, full-resolution local image in a new tab. The expertise order is critical infrastructure, research and tools, renewable energy, then power-system flexibility.
 
 ## Contact form
 
