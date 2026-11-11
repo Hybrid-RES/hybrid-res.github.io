@@ -15,7 +15,9 @@
   --header-height: 73px;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
+html { scroll-behavior: smooth; }
+/* Apply clearance to content anchors only, so focusing the sticky menu does not scroll the page. */
+main, main [id] { scroll-margin-top: calc(var(--header-height) + 20px); }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 body, button, a { -webkit-tap-highlight-color: transparent; }
 button, input, select, textarea { font: inherit; }
@@ -264,7 +266,6 @@ ul, ol { padding: 0; list-style: none; }
   .header-inner { gap: 20px; }
   .site-nav { gap: 14px; }
   .hero-grid { gap: 44px; }
-  .hero h1 { font-size: 82px; }
   .hero-actions { gap: 12px 18px; }
   .about-grid, .project-intro-grid { gap: 60px; }
   .project-feature-grid { gap: 36px; }
@@ -272,7 +273,6 @@ ul, ol { padding: 0; list-style: none; }
   .focus-strip span { font-size: 10px; letter-spacing: .07em; }
   .module-card { padding: 26px 22px; }
   .editorial-grid { gap: 48px; }
-  .editorial-title { font-size: 52px; }
   .contact-page-title { font-size: 36px; }
   .editorial-description { font-size: 16px; }
   .tool-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

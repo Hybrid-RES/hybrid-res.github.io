@@ -182,7 +182,7 @@
   function closeSections(returnFocus = false) {
     if (!sectionMenu?.open) return;
     sectionMenu.open = false;
-    if (returnFocus) sectionMenuSummary?.focus();
+    if (returnFocus) sectionMenuSummary?.focus({ preventScroll: true });
   }
 
   function closeMenu(returnFocus = false) {
@@ -190,7 +190,7 @@
     navigation?.classList.remove('is-open');
     menuToggle?.setAttribute('aria-expanded', 'false');
     updateMenuLabel();
-    if (returnFocus) menuToggle?.focus();
+    if (returnFocus) menuToggle?.focus({ preventScroll: true });
   }
 
   if (menuToggle && navigation) {
@@ -199,7 +199,7 @@
       navigation.classList.toggle('is-open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
       updateMenuLabel();
-      if (open) navigation.querySelector('a')?.focus();
+      if (open) navigation.querySelector('a')?.focus({ preventScroll: true });
       else closeSections();
     });
   }
