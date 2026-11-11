@@ -1,4 +1,4 @@
-# Sergii Khomutov · Hybrid-RES
+# Sergii Khomutov · HYBRID : RES
 
 Personal website, research interests and a concise introduction to the HybridAEP engineering project.
 
@@ -24,7 +24,7 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | `assets/images/sergii-research.jpg` | Park-bench portrait on the research page |
 | `assets/images/sergii-contact.jpg` | Colour staircase portrait on the contact page |
 | `assets/images/hybridaep-landscape.svg` | Original vector illustration; a conceptual site, not a simulation result |
-| `assets/images/favicon.svg` | Site identity and favicon |
+| `assets/images/favicon.svg` | SK monogram used in the header and browser tab |
 | `assets/images/tools/` | Official product marks used in the tools-and-data-sources section |
 | `assets/images/credentials/` | IVE and Uptime Institute logos, plus the owner's ATD certificate |
 | `THIRD_PARTY_NOTICES.md` | Asset origins, attribution and applicable third-party licences |
@@ -32,6 +32,8 @@ Personal website, research interests and a concise introduction to the HybridAEP
 The Ukrainian content is present in the HTML and remains usable without JavaScript. Each translated text element has a matching `data-en` attribute. The language switch also updates the document language, title, descriptions, navigation labels and cross-page links. English can be linked directly with `?lang=en`; an explicit switch is remembered locally when browser storage is available.
 
 ## Navigation and layout
+
+The shared identity combines the owner's SK monogram with the uppercase **HYBRID : RES** wordmark. Two small teal squares form the colon; the monogram uses light S and amber K lettering on the site's dark background. The same vector mark is used as the favicon. Keep GitHub account names and URLs as `Hybrid-RES`.
 
 The header includes About, Expertise, Projects, HybridAEP and Contact. Home and About are one introduction with a full-length portrait and a shared education-and-credentials row. Existing `#intro`, `#about` and `#education` links remain available. A native **Sections / Розділи** disclosure lists every main block of the current page, including education and credentials, the project tools, modules, workflow and future development. On smaller screens, the full menu is scrollable and can be closed with Escape. The current page or section is highlighted as the visitor moves through the site.
 
