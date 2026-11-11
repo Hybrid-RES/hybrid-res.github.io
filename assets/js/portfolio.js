@@ -2,9 +2,6 @@
 (() => {
   'use strict';
 
-  // Add the owner's chosen portrait to assets/images and set its relative URL here.
-  // An empty value intentionally shows the designed monogram, with no broken image.
-  const PORTRAIT_URL = '';
   const EMAIL = 'sergii.khomutov@gmail.com';
   const STORAGE_KEY = 'hybrid-res-language';
   const root = document.documentElement;
@@ -131,19 +128,6 @@
         ? (language === 'en' ? 'Email address copied.' : 'Адресу скопійовано.')
         : (language === 'en' ? 'Please select and copy the email address above.' : 'Виділіть і скопіюйте адресу вище.');
     });
-  }
-
-  const portraitCard = document.querySelector('.portrait-card');
-  if (PORTRAIT_URL && portraitCard) {
-    const portrait = new Image();
-    portrait.className = 'profile-portrait';
-    portrait.alt = 'Sergii Khomutov / Сергій Хомутов';
-    portrait.decoding = 'async';
-    portrait.addEventListener('load', () => {
-      portraitCard.prepend(portrait);
-      portraitCard.classList.add('has-portrait');
-    });
-    portrait.src = PORTRAIT_URL;
   }
 
   document.querySelectorAll('[data-year]').forEach(node => { node.textContent = new Date().getFullYear(); });
