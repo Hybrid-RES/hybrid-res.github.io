@@ -49,7 +49,7 @@ HybridAEP is the author's developing engineering platform. The page introduces t
 
 The project presentation intentionally contains no private application URLs, source-code links, customer data or deployment details. The personal expertise section and the platform's implemented capabilities are separate.
 
-The personal profile includes the owner's supplied PhD qualification from the Institute of Renewable Energy of the National Academy of Sciences of Ukraine, in Electrical engineering, with Programme Subject Area Electrical power, electrical engineering and electromechanics. The profile also describes energy solutions for critical infrastructure, including telecommunications and data centres. No employer is named.
+The personal profile includes the owner's supplied PhD qualification from the Institute of Renewable Energy of the National Academy of Sciences of Ukraine, in Electrical engineering, with Programme Subject Area Electrical power, electrical engineering and electromechanics. The profile also describes energy solutions for critical infrastructure, including telecommunications and data centers. No employer is named.
 
 The adjacent Uptime Institute card presents the owner's **Accredited Tier Designer (ATD)** certificate, number **3911**, dated **23 March 2021**, as shown in the original certificate. It does not assert a current validity period. Both credential cards have equal dimensions in the desktop grid and stack on smaller screens. The small certificate preview opens the unmodified, full-resolution local image in a new tab. The expertise order is critical infrastructure, research and tools, renewable energy, then power-system flexibility.
 
