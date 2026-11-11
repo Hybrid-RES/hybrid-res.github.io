@@ -41,7 +41,7 @@ Contact links open the visitor's own email client. No message is sent by the web
 
 ## Maintenance checks
 
-After editing, check both pages in Ukrainian and English, narrow and wide layouts, keyboard navigation, mobile menu, internal links and the email-copy action. Preserve the single main heading, visible focus outlines and reduced-motion styles.
+After editing, check both pages in Ukrainian and English, narrow and wide layouts, keyboard navigation, mobile menu, internal links and the email-copy action. Preserve the single main heading, visible focus outlines and reduced-motion styles. When CSS or JavaScript changes, update the `v=` asset version in both HTML files so returning visitors receive the matching assets rather than a cached earlier version.
 
 ## Original template
 
