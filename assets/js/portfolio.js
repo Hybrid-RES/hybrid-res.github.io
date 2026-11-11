@@ -2,7 +2,6 @@
 (() => {
   'use strict';
 
-  const EMAIL = 'sergii.khomutov@gmail.com';
   const STORAGE_KEY = 'hybrid-res-language';
   const root = document.documentElement;
   root.classList.add('js');
@@ -12,7 +11,7 @@
     node.dataset.uk = node.tagName === 'META' ? node.content : node.textContent;
   });
   const attributeTranslations = [
-    ['aria-label', 'label'], ['alt', 'alt'], ['href', 'href']
+    ['aria-label', 'label'], ['alt', 'alt'], ['href', 'href'], ['placeholder', 'placeholder']
   ];
   attributeTranslations.forEach(([attribute, key]) => {
     document.querySelectorAll(`[data-${key}-en]`).forEach(node => {
@@ -23,8 +22,38 @@
   const languageButtons = document.querySelectorAll('[data-language]');
   const menuToggle = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.site-nav');
-  const status = document.querySelector('.copy-status');
+  const contactForm = document.querySelector('[data-contact-form]');
+  const formFields = contactForm?.querySelector('.form-fields');
+  const formStatus = contactForm?.querySelector('.form-status');
+  const formAvailability = contactForm?.querySelector('.form-availability');
+  const formSubmit = contactForm?.querySelector('[type="submit"]');
+  const formSubmitLabel = contactForm?.querySelector('[data-form-submit-label]');
   let language = 'uk';
+  let formState = 'idle';
+  let formActive = false;
+  let formPending = false;
+
+  const formMessages = {
+    pending: ['Надсилаємо звернення…', 'Sending your enquiry…'],
+    success: ['Звернення надіслано. Дякую!', 'Your enquiry has been sent. Thank you!'],
+    invalid: ['Перевірте email і додайте запитання: від 10 до 5000 символів.', 'Check your email and enter a question between 10 and 5,000 characters.'],
+    inactive: ['Форма ще не активована. Надсилання повідомлень поки недоступне.', 'The form is not activated yet. Sending messages is currently unavailable.'],
+    error: ['Не вдалося підтвердити надсилання. Текст залишився у формі — спробуйте ще раз пізніше.', 'We could not confirm your submission. Your text is still in the form — please try again later.']
+  };
+
+  function updateFormPresentation() {
+    if (!contactForm) return;
+    if (formStatus) {
+      formStatus.textContent = formMessages[formState]?.[language === 'en' ? 1 : 0] || '';
+      formStatus.dataset.state = formState;
+    }
+    if (formSubmitLabel) {
+      formSubmitLabel.textContent = formPending
+        ? (language === 'en' ? 'Sending…' : 'Надсилання…')
+        : (language === 'en' ? formSubmitLabel.dataset.en : formSubmitLabel.dataset.uk);
+    }
+    contactForm.setAttribute('aria-busy', String(formPending));
+  }
 
   function updateMenuLabel() {
     if (!menuToggle) return;
@@ -57,7 +86,7 @@
       link.setAttribute('href', `${target.pathname}${target.search}${target.hash}`);
     });
     updateMenuLabel();
-    if (status) status.textContent = '';
+    updateFormPresentation();
     if (persist) {
       try { window.localStorage.setItem(STORAGE_KEY, language); } catch (_) { /* Storage is optional. */ }
       try {
@@ -103,30 +132,108 @@
     desktop.addEventListener('change', event => { if (event.matches) closeMenu(); });
   }
 
-  const copyButton = document.querySelector('.copy-email');
-  if (copyButton && status) {
-    copyButton.addEventListener('click', async () => {
-      let copied = false;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(EMAIL);
-          copied = true;
-        }
-      } catch (_) { /* Fall back to an explicit, user-triggered copy operation. */ }
-      if (!copied) {
-        const field = document.createElement('textarea');
-        field.value = EMAIL;
-        field.setAttribute('readonly', '');
-        field.style.cssText = 'position:fixed;left:-9999px;top:0';
-        document.body.appendChild(field);
-        field.select();
-        try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
-        field.remove();
-        copyButton.focus();
+  if (contactForm && formFields && formSubmit) {
+    // The recipient is never placed in page source. Only a configured public form ID is accepted.
+    let endpoint = null;
+    try {
+      const candidate = new URL(contactForm.dataset.endpoint || '');
+      if (candidate.protocol === 'https:' && candidate.hostname === 'formsubmit.co'
+          && !candidate.port && !candidate.username && !candidate.password
+          && !candidate.search && !candidate.hash
+          && /^\/[A-Za-z0-9_-]{16,128}\/?$/.test(candidate.pathname)) {
+        endpoint = candidate;
       }
-      status.textContent = copied
-        ? (language === 'en' ? 'Email address copied.' : 'Адресу скопійовано.')
-        : (language === 'en' ? 'Please select and copy the email address above.' : 'Виділіть і скопіюйте адресу вище.');
+    } catch (_) { /* An unconfigured form stays visibly unavailable. */ }
+
+    formActive = Boolean(endpoint);
+    formFields.disabled = !formActive;
+    formSubmit.disabled = !formActive;
+    if (formAvailability) formAvailability.hidden = formActive;
+    if (endpoint) contactForm.action = endpoint.href;
+
+    const topics = {
+      general: 'General enquiry',
+      hybridaep: 'HybridAEP',
+      research: 'Research and collaboration',
+      infrastructure: 'Critical infrastructure'
+    };
+    const topicField = contactForm.querySelector('[name="topic"]');
+    const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+    if (topicField && Object.hasOwn(topics, requestedTopic || '')) topicField.value = requestedTopic;
+
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (formPending) return;
+      if (!endpoint || !formActive) {
+        formState = 'inactive';
+        updateFormPresentation();
+        formStatus?.focus();
+        return;
+      }
+      if (!contactForm.reportValidity()) return;
+
+      // Capture only intended fields before disabling the fieldset during the request.
+      const data = new FormData(contactForm);
+      const email = String(data.get('email') || '').trim();
+      const message = String(data.get('message') || '').trim();
+      const name = String(data.get('name') || '').trim();
+      const topic = Object.hasOwn(topics, String(data.get('topic'))) ? String(data.get('topic')) : 'general';
+      if (!email || email.length > 254 || message.length < 10 || message.length > 5000
+          || name.length > 100 || String(data.get('_honey') || '').trim()) {
+        formState = 'invalid';
+        updateFormPresentation();
+        formStatus?.focus();
+        return;
+      }
+
+      const payload = {
+        name,
+        email,
+        topic: topics[topic],
+        message,
+        _honey: '',
+        _subject: `[Hybrid-RES] ${topics[topic]}`,
+        _template: 'table',
+        _url: 'https://hybrid-res.github.io/contact.html'
+      };
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 20000);
+      formPending = true;
+      formState = 'pending';
+      formFields.disabled = true;
+      formSubmit.disabled = true;
+      updateFormPresentation();
+
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${endpoint.pathname.replace(/^\/|\/$/g, '')}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+          credentials: 'omit',
+          referrerPolicy: 'strict-origin-when-cross-origin'
+        });
+        const result = await response.json();
+        const needsActivation = /activat|confirm\s+(?:your\s+)?(?:email|form)/i.test(String(result?.message || ''));
+        const accepted = response.ok && (result?.success === true || result?.success === 'true') && !needsActivation;
+        if (!accepted) {
+          formState = needsActivation ? 'inactive' : 'error';
+        } else {
+          contactForm.reset();
+          if (topicField) topicField.value = topic;
+          formState = 'success';
+        }
+      } catch (_) {
+        // A timeout or network error is not proof of delivery. Preserve the visitor's text.
+        formState = 'error';
+      } finally {
+        window.clearTimeout(timeout);
+        formPending = false;
+        formFields.disabled = !formActive;
+        formSubmit.disabled = !formActive;
+        updateFormPresentation();
+        formStatus?.focus();
+      }
     });
   }
 

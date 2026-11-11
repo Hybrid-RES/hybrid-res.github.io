@@ -20,8 +20,8 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://hybrid-res.github.io/contact.html">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.3">
-  <script src="assets/js/portfolio.js?v=20261111.3" defer></script>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.4">
+  <script src="assets/js/portfolio.js?v=20261111.4" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "name": "Контакти — Сергій Хомутов", "description": "Напишіть Сергію Хомутову: обговорення енергетичних проєктів, дослідницьких задач, співпраці та інженерної платформи HybridAEP.", "url": "https://hybrid-res.github.io/contact.html", "about": {"@type": "Person", "name": "Sergii Khomutov", "url": "https://hybrid-res.github.io/"}}</script>
 </head>
 <body id="top">
@@ -79,19 +79,37 @@
           <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-en="Let’s connect">Давайте поспілкуємося</span></div>
           <h1 data-en="Send me your question — I’d be happy to discuss your challenge." id="contact-page-title" class="editorial-title contact-page-title">Напишіть ваше запитання — із задоволенням обговоримо задачу.</h1>
           <p data-en="Have an energy project in mind, a research question or a collaboration proposal? Tell me a little about the context and what you would like to solve." class="editorial-description">Маєте ідею енергетичного проєкту, дослідницьку задачу чи пропозицію співпраці? Розкажіть трохи про ваш контекст і те, що хочете вирішити.</p>
-          <div class="hero-actions">
-            <a class="button" href="mailto:sergii.khomutov@gmail.com"><span data-en="Write an email">Написати листа</span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></a>
-          </div>
+          <form id="contact-form" class="contact-form" data-contact-form method="post" action="" data-endpoint="">
+            <p data-en="This form is not active yet. Message submission is currently unavailable." class="form-availability" role="status">Форма ще не активована. Надсилання повідомлень поки недоступне.</p>
+            <fieldset class="form-fields" disabled>
+              <legend class="sr-only"><span data-en="Your enquiry">Ваше звернення</span></legend>
+              <div class="form-row">
+                <label class="form-field" for="contact-name"><span data-en="Name (optional)">Ім’я (необов’язково)</span><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100"></label>
+                <label class="form-field" for="contact-email"><span data-en="Your email">Ваш email</span><input id="contact-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="form-privacy"></label>
+              </div>
+              <label class="form-field" for="contact-topic"><span data-en="Enquiry topic">Тема звернення</span>
+                <select id="contact-topic" name="topic">
+                  <option data-en="General enquiry" value="general">Загальне запитання</option>
+                  <option value="hybridaep">HybridAEP</option>
+                  <option data-en="Research &amp; collaboration" value="research">Дослідження та співпраця</option>
+                  <option data-en="Critical infrastructure" value="infrastructure">Критична інфраструктура</option>
+                </select>
+              </label>
+              <label class="form-field" for="contact-message"><span data-en="Your question or challenge">Ваше запитання або задача</span><textarea id="contact-message" name="message" rows="5" minlength="10" maxlength="5000" required></textarea></label>
+              <div class="form-honeypot" aria-hidden="true"><label for="contact-website">Website</label><input id="contact-website" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+              <input type="hidden" name="_subject" value="Hybrid-RES · Website enquiry">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_url" value="https://hybrid-res.github.io/contact.html">
+              <button class="button form-submit" type="submit"><span data-en="Send enquiry" data-form-submit-label>Надіслати звернення</span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></button>
+            </fieldset>
+            <p class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+            <p data-en="Your email is used only to reply to your enquiry." id="form-privacy" class="form-privacy">Ваш email потрібен лише для відповіді на звернення.</p>
+          </form>
           <div class="contact-page-links">
-            <a class="contact-link" href="mailto:sergii.khomutov@gmail.com">
-              <div><small>Email</small><span>sergii.khomutov@gmail.com</span></div><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg>
-            </a>
-            <div class="copy-row"><button class="copy-email" type="button"><span data-en="Copy email address">Скопіювати email</span></button><span class="copy-status" role="status" aria-live="polite"></span></div>
             <a class="contact-link" href="https://github.com/Hybrid-RES" target="_blank" rel="noopener noreferrer">
               <div><small data-en="My public projects">Мої відкриті проєкти</small><span>GitHub · Hybrid-RES</span></div><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg>
             </a>
           </div>
-          <p data-en="A brief description of your challenge is enough to start." class="contact-page-note">Для початку достатньо короткого опису задачі.</p>
         </div>
       </div>
     </section>
