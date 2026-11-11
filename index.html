@@ -20,11 +20,11 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://hybrid-res.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.4">
-  <script src="assets/js/portfolio.js?v=20261111.4" defer></script>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.5">
+  <script src="assets/js/portfolio.js?v=20261111.5" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Sergii Khomutov", "alternateName": "Сергій Хомутов", "honorificSuffix": "PhD", "url": "https://hybrid-res.github.io/", "image": "https://hybrid-res.github.io/assets/images/sergii-home.jpg", "alumniOf": {"@type": "EducationalOrganization", "name": "Institute of Renewable Energy of the National Academy of Sciences of Ukraine"}, "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "Doctor of Philosophy", "educationalLevel": "PhD", "credentialCategory": "degree", "recognizedBy": {"@type": "EducationalOrganization", "name": "Institute of Renewable Energy of the National Academy of Sciences of Ukraine"}, "about": ["Electrical engineering", "Electrical power, electrical engineering and electromechanics"]}, "knowsAbout": ["Renewable energy", "Energy storage", "Aggregation and VPP", "Critical infrastructure", "Telecommunications", "Data centres"], "sameAs": ["https://github.com/Hybrid-RES"]}</script>
 </head>
-<body id="top">
+<body id="top" data-page="home">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -52,11 +52,24 @@
         <span class="brand-word">Hybrid<span>—</span>RES</span>
       </a>
       <nav class="site-nav" id="site-navigation" aria-label="Основна навігація" data-label-en="Main navigation">
-        <a href="#about"><span data-en="About">Про мене</span></a>
-        <a href="#expertise"><span data-en="Expertise">Експертиза</span></a>
-        <a href="research.html" data-language-link><span data-en="Projects">Проєкти</span></a>
-        <a href="hybridaep.html" data-language-link>HybridAEP</a>
-        <a href="contact.html" data-language-link><span data-en="Contact">Контакти</span></a>
+        <a href="#top" data-primary-link aria-current="page"><span data-en="Home">Головна</span></a>
+        <a href="#about" data-primary-link><span data-en="About">Про мене</span></a>
+        <a href="#expertise" data-primary-link><span data-en="Expertise">Експертиза</span></a>
+        <a href="research.html" data-language-link data-primary-link><span data-en="Projects">Проєкти</span></a>
+        <a href="hybridaep.html" data-language-link data-primary-link>HybridAEP</a>
+        <a href="contact.html" data-language-link data-primary-link><span data-en="Contact">Контакти</span></a>
+        <details class="section-menu">
+          <summary><span data-en="Sections">Розділи</span></summary>
+          <div class="section-menu-panel">
+            <p data-en="On this page" class="section-menu-caption">На цій сторінці</p>
+            <a href="#intro" data-section-link><span data-en="Introduction">Знайомство</span></a>
+<a href="#about" data-section-link><span data-en="About me">Про мене</span></a>
+<a href="#education" data-section-link><span data-en="Education · PhD">Освіта · PhD</span></a>
+<a href="#expertise" data-section-link><span data-en="Expertise">Експертиза</span></a>
+<a href="#hybridaep" data-section-link><span data-en="My project · HybridAEP">Мій проєкт HybridAEP</span></a>
+<a href="#contact" data-section-link><span data-en="Get in touch">Зв’язок</span></a>
+          </div>
+        </details>
       </nav>
       <div class="header-actions">
         <div class="language-switch" role="group" aria-label="Мова сторінки" data-label-en="Page language">
@@ -70,8 +83,7 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="personal-name">
-      <span id="intro" aria-hidden="true"></span>
-      <div class="container hero-grid">
+      <div class="container hero-grid" id="intro">
         <div class="hero-copy">
           <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-en="Energy · Engineering · Research">Енергетика · Інженерія · Дослідження</span></div>
           <h1 id="personal-name"><span data-en="Sergii">Сергій</span><span data-en="Khomutov" class="surname">Хомутов</span></h1>
@@ -100,8 +112,8 @@
       <span data-en="Digital engineering">Цифрові інструменти</span>
     </div></div>
 
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container about-grid">
+    <section class="section" aria-labelledby="about-title">
+      <div class="container about-grid" id="about">
         <div>
           <div class="section-label"><span class="number">01</span><span data-en="About me">Про мене</span></div>
           <h2 data-en="Where energy becomes a system." id="about-title" class="section-heading">Працюю там, де енергія стає системою.</h2>
@@ -109,7 +121,7 @@
         <div class="about-copy">
           <p data-en="My professional focus is the connection between generation, storage and energy management. I work at the intersection of engineering, electricity markets and digital technology.">Мій професійний фокус — поєднання генерації, накопичення та керування енергією. Працюю на перетині технічних рішень, ринку електроенергії та цифрових технологій.</p>
           <p data-en="I combine practical engineering with research into hybrid energy-system control and the development of my own project, HybridAEP. Another focus is energy solutions for critical infrastructure, including telecommunications and data centres.">Поєдную практичну роботу з дослідженнями керування гібридними енергосистемами та розвитком власного проєкту HybridAEP. Окремий напрям — енергетичні рішення для критичної інфраструктури: телекомунікацій та центрів обробки даних.</p>
-          <div class="academic-profile">
+          <div class="academic-profile" id="education">
             <div class="academic-heading"><span class="degree-mark" aria-hidden="true">PhD</span><h3 data-en="Doctor of Philosophy">Доктор філософії</h3></div>
             <p data-en="Institute of Renewable Energy of the National Academy of Sciences of Ukraine" class="academic-institution">Інститут відновлюваної енергетики Національної академії наук України</p>
             <dl class="academic-details">
@@ -122,9 +134,9 @@
       </div>
     </section>
 
-    <section class="section expertise" id="expertise" aria-labelledby="expertise-title">
-      <span id="work" aria-hidden="true"></span>
-      <div class="container">
+    <section class="section expertise" aria-labelledby="expertise-title">
+      <div class="container" id="expertise">
+        <span id="work" aria-hidden="true"></span>
         <div class="section-label"><span class="number">02</span><span data-en="Expertise">Експертиза</span></div>
         <div class="section-intro">
           <h2 data-en="From an idea to a working solution." id="expertise-title" class="section-heading">Від ідеї до робочого рішення.</h2>
@@ -155,8 +167,8 @@
       </div>
     </section>
 
-    <section class="project-feature dark" id="hybridaep" aria-labelledby="project-title">
-      <div class="container project-feature-grid">
+    <section class="project-feature dark" aria-labelledby="project-title">
+      <div class="container project-feature-grid" id="hybridaep">
         <div>
           <div class="section-label"><span class="number">03</span><span data-en="My engineering project">Мій інженерний проєкт</span></div>
           <h2 id="project-title" class="project-wordmark">Hybrid<span>AEP</span></h2>
@@ -171,8 +183,8 @@
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-grid">
+    <section class="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid" id="contact">
         <div>
           <div class="section-label"><span class="number">04</span><span data-en="Get in touch">Контакти</span></div>
           <h2 data-en="Let’s talk about your energy project." id="contact-title" class="section-heading">Обговорімо вашу енергетичну ідею.</h2>

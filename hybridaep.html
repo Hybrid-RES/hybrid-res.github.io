@@ -17,11 +17,11 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://hybrid-res.github.io/hybridaep.html">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.4">
-  <script src="assets/js/portfolio.js?v=20261111.4" defer></script>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.5">
+  <script src="assets/js/portfolio.js?v=20261111.5" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HybridAEP", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "HybridAEP: оцінювання вітрових і сонячних електростанцій. Ресурс, рельєф, розміщення обладнання, виробіток, інтеграція з PVsyst та інженерні звіти.", "url": "https://hybrid-res.github.io/hybridaep.html", "author": {"@type": "Person", "name": "Sergii Khomutov", "url": "https://hybrid-res.github.io/"}}</script>
 </head>
-<body id="top">
+<body id="top" data-page="hybridaep">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -49,11 +49,25 @@
         <span class="brand-word">Hybrid<span>—</span>RES</span>
       </a>
       <nav class="site-nav" id="site-navigation" aria-label="Основна навігація" data-label-en="Main navigation">
-        <a href="index.html#about" data-language-link><span data-en="About">Про мене</span></a>
-        <a href="index.html#expertise" data-language-link><span data-en="Expertise">Експертиза</span></a>
-        <a href="research.html" data-language-link><span data-en="Projects">Проєкти</span></a>
-        <a href="hybridaep.html" data-language-link aria-current="page">HybridAEP</a>
-        <a href="contact.html" data-language-link><span data-en="Contact">Контакти</span></a>
+        <a href="index.html" data-language-link data-primary-link><span data-en="Home">Головна</span></a>
+        <a href="index.html#about" data-language-link data-primary-link><span data-en="About">Про мене</span></a>
+        <a href="index.html#expertise" data-language-link data-primary-link><span data-en="Expertise">Експертиза</span></a>
+        <a href="research.html" data-language-link data-primary-link><span data-en="Projects">Проєкти</span></a>
+        <a href="hybridaep.html" data-language-link data-primary-link aria-current="page">HybridAEP</a>
+        <a href="contact.html" data-language-link data-primary-link><span data-en="Contact">Контакти</span></a>
+        <details class="section-menu">
+          <summary><span data-en="Sections">Розділи</span></summary>
+          <div class="section-menu-panel">
+            <p data-en="On this page" class="section-menu-caption">На цій сторінці</p>
+            <a href="#project-overview" data-section-link><span data-en="HybridAEP overview">Огляд HybridAEP</span></a>
+<a href="#tools" data-section-link><span data-en="Tools &amp; data">Інструменти та дані</span></a>
+<a href="#project-purpose" data-section-link><span data-en="Project purpose">Ідея проєкту</span></a>
+<a href="#modules" data-section-link><span data-en="Platform modules">Модулі платформи</span></a>
+<a href="#workflow" data-section-link><span data-en="Workflow">Логіка роботи</span></a>
+<a href="#roadmap" data-section-link><span data-en="Future development">Подальший розвиток</span></a>
+<a href="#project-contact" data-section-link><span data-en="Discuss the project">Обговорити проєкт</span></a>
+          </div>
+        </details>
       </nav>
       <div class="header-actions">
         <div class="language-switch" role="group" aria-label="Мова сторінки" data-label-en="Page language">
@@ -67,8 +81,7 @@
 
   <main id="main">
     <section class="project-hero dark" aria-labelledby="hybridaep-title">
-      <div class="container">
-        <a class="back-link" href="index.html" data-language-link><svg class="" aria-hidden="true" focusable="false"><use href="#i-left"></use></svg><span data-en="Back to my personal website">До особистої сторінки</span></a>
+      <div class="container" id="project-overview">
         <div class="project-hero-grid">
           <div>
             <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-en="My engineering project">Мій інженерний проєкт</span></div>
@@ -95,7 +108,7 @@
     </section>
 
     <section class="tools-section" aria-labelledby="tools-title">
-      <div class="container">
+      <div class="container" id="tools">
         <h2 data-en="Tools &amp; data sources" id="tools-title" class="tools-title">Інструменти та джерела даних</h2>
         <div class="tool-grid">
   <a class="tool-card" href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels" target="_blank" rel="noopener noreferrer">
@@ -124,8 +137,8 @@
       </div>
     </section>
 
-    <section class="section modules-section" id="modules" aria-labelledby="modules-title">
-      <div class="container">
+    <section class="section modules-section" aria-labelledby="modules-title">
+      <div class="container" id="modules">
         <div class="section-label"><span class="number">01</span><span data-en="Platform capabilities">Можливості платформи</span></div>
         <div class="section-intro">
           <h2 data-en="Tools for every stage." id="modules-title" class="section-heading">Інструменти для кожного етапу.</h2>
@@ -165,7 +178,7 @@
     </section>
 
     <section class="workflow-section" aria-labelledby="workflow-title">
-      <div class="container">
+      <div class="container" id="workflow">
         <div class="workflow-heading">
           <div><div class="section-label"><span class="number">02</span><span data-en="The workflow">Логіка роботи</span></div><h2 data-en="One project. Connected decisions." id="workflow-title" class="section-heading">Один проєкт. Послідовні рішення.</h2></div>
           <p data-en="Each stage informs the next, preserving context and making it possible to trace results back to the original assumptions.">Результати одного етапу стають основою для наступного — зі збереженням контексту й можливістю повернутися до вихідних припущень.</p>
@@ -174,15 +187,15 @@
 <li><span class="workflow-step-number">02</span><h3 data-en="Configuration">Конфігурація</h3><p data-en="Equipment, layouts and alternatives.">Обладнання, розміщення та варіанти.</p></li>
 <li><span class="workflow-step-number">03</span><h3 data-en="Modelling">Моделювання</h3><p data-en="Generation, interactions and losses.">Генерація, взаємний вплив і втрати.</p></li>
 <li><span class="workflow-step-number">04</span><h3 data-en="Decision">Рішення</h3><p data-en="Comparison, conclusions and a report.">Порівняння, висновки та звіт.</p></li></ol>
-        <aside class="roadmap-note">
+        <aside class="roadmap-note" id="roadmap">
           <strong data-en="Planned">У планах</strong>
           <p data-en="Energy storage and integrated hybrid-system modelling are the next directions for HybridAEP.">Накопичення енергії та інтегроване моделювання гібридних систем — наступні напрями розвитку HybridAEP.</p>
         </aside>
       </div>
     </section>
 
-    <section class="project-contact" id="project-contact" aria-labelledby="project-contact-title">
-      <div class="container project-contact-inner">
+    <section class="project-contact" aria-labelledby="project-contact-title">
+      <div class="container project-contact-inner" id="project-contact">
         <div>
           <div class="section-label"><span class="number">03</span><span data-en="Let’s connect">Давайте обговоримо</span></div>
           <h2 data-en="How could this fit your project?" id="project-contact-title" class="section-heading">Як це може працювати для вашого проєкту?</h2>

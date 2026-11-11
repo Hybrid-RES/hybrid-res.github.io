@@ -20,8 +20,15 @@
   });
 
   const languageButtons = document.querySelectorAll('[data-language]');
+  const header = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.site-nav');
+  const sectionMenu = document.querySelector('.section-menu');
+  const sectionMenuSummary = sectionMenu?.querySelector('summary');
+  const sectionLinks = Array.from(document.querySelectorAll('[data-section-link]'));
+  const primaryLinks = Array.from(document.querySelectorAll('[data-primary-link]'));
+  let headerHeight = 0;
+  let navigationFrame = 0;
   const contactForm = document.querySelector('[data-contact-form]');
   const formFields = contactForm?.querySelector('.form-fields');
   const formStatus = contactForm?.querySelector('.form-status');
@@ -63,6 +70,72 @@
       : (open ? 'Закрити меню' : 'Відкрити меню'));
   }
 
+  function samePageTarget(link) {
+    try {
+      const target = new URL(link.getAttribute('href'), window.location.href);
+      const normalizePath = path => path.replace(/\/index\.html$/, '/');
+      if (target.origin !== window.location.origin
+          || normalizePath(target.pathname) !== normalizePath(window.location.pathname)
+          || !target.hash) return null;
+      return document.getElementById(decodeURIComponent(target.hash.slice(1)));
+    } catch (_) { return null; }
+  }
+
+  function updateHeaderHeight() {
+    if (!header) return;
+    const measured = Math.ceil(header.getBoundingClientRect().height);
+    if (measured > 0 && measured !== headerHeight) {
+      headerHeight = measured;
+      root.style.setProperty('--header-height', `${measured}px`);
+    }
+  }
+
+  function updateActiveNavigation() {
+    const targets = sectionLinks.map(link => ({ link, target: samePageTarget(link) }))
+      .filter(item => item.target)
+      .map(item => ({ ...item, top: item.target.getBoundingClientRect().top }))
+      .sort((a, b) => a.top - b.top);
+    if (!targets.length) return;
+
+    // Use the same clearance as native hash navigation, including the sticky header.
+    const threshold = headerHeight + 24;
+    let active = targets[0];
+    targets.forEach(item => { if (item.top <= threshold) active = item; });
+    if (window.scrollY + window.innerHeight >= root.scrollHeight - 2) {
+      active = targets[targets.length - 1];
+    }
+    sectionLinks.forEach(link => {
+      if (link === active.link) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+
+    // Preserve page-current markers on research, HybridAEP and contact pages.
+    if (document.body.dataset.page !== 'home') return;
+    const activeSection = active.target.closest('section');
+    primaryLinks.forEach(link => {
+      const target = samePageTarget(link);
+      if (!target) return;
+      const isHome = target.id === 'top' || target.id === 'intro';
+      const isCurrent = isHome
+        ? active.target === target || activeSection?.classList.contains('hero')
+        : target.closest('section') === activeSection;
+      if (isCurrent) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function queueNavigationUpdate() {
+    if (navigationFrame) return;
+    const schedule = window.requestAnimationFrame
+      ? callback => window.requestAnimationFrame(callback)
+      : callback => window.setTimeout(callback, 16);
+    navigationFrame = schedule(() => {
+      navigationFrame = 0;
+      updateHeaderHeight();
+      updateActiveNavigation();
+    });
+  }
+
   function setLanguage(next, persist = false) {
     language = next === 'en' ? 'en' : 'uk';
     root.lang = language;
@@ -96,6 +169,7 @@
         window.history.replaceState(null, '', url);
       } catch (_) { /* Language switching also works from a local file. */ }
     }
+    queueNavigationUpdate();
   }
 
   let preferred = 'uk';
@@ -105,12 +179,18 @@
   setLanguage(preferred);
   languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language, true)));
 
+  function closeSections(returnFocus = false) {
+    if (!sectionMenu?.open) return;
+    sectionMenu.open = false;
+    if (returnFocus) sectionMenuSummary?.focus();
+  }
+
   function closeMenu(returnFocus = false) {
-    if (!menuToggle || !navigation) return;
-    navigation.classList.remove('is-open');
-    menuToggle.setAttribute('aria-expanded', 'false');
+    closeSections();
+    navigation?.classList.remove('is-open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
     updateMenuLabel();
-    if (returnFocus) menuToggle.focus();
+    if (returnFocus) menuToggle?.focus();
   }
 
   if (menuToggle && navigation) {
@@ -120,17 +200,37 @@
       menuToggle.setAttribute('aria-expanded', String(open));
       updateMenuLabel();
       if (open) navigation.querySelector('a')?.focus();
+      else closeSections();
     });
-    navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') closeMenu(true);
-    });
-    document.addEventListener('click', event => {
-      if (!event.target.closest('.site-header')) closeMenu();
-    });
-    const desktop = window.matchMedia('(min-width: 851px)');
-    desktop.addEventListener('change', event => { if (event.matches) closeMenu(); });
   }
+
+  header?.addEventListener('click', event => {
+    const link = event.target.closest('a');
+    if (link && (navigation?.contains(link) || sectionMenu?.contains(link))) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    if (sectionMenu?.open) closeSections(true);
+    else if (menuToggle?.getAttribute('aria-expanded') === 'true') closeMenu(true);
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.section-menu')) closeSections();
+    if (!event.target.closest('.site-header')) closeMenu();
+  });
+  if (window.matchMedia) {
+    const desktop = window.matchMedia('(min-width: 1025px)');
+    if (desktop.addEventListener) desktop.addEventListener('change', () => closeMenu());
+    else desktop.addListener?.(() => closeMenu());
+  }
+  window.addEventListener('scroll', queueNavigationUpdate, { passive: true });
+  window.addEventListener('resize', queueNavigationUpdate, { passive: true });
+  window.addEventListener('hashchange', queueNavigationUpdate);
+  window.addEventListener('load', queueNavigationUpdate);
+  if (header && window.ResizeObserver) {
+    new window.ResizeObserver(queueNavigationUpdate).observe(header);
+  }
+  updateHeaderHeight();
+  queueNavigationUpdate();
 
   if (contactForm && formFields && formSubmit) {
     // The recipient is never placed in page source. Only a configured public form ID is accepted.

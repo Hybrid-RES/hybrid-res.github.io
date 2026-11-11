@@ -19,7 +19,7 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | `hybridaep.html` | Short project presentation and six module summaries |
 | `contact.html` | Online enquiry form and a personal invitation to connect |
 | `assets/css/portfolio.css` | Shared visual design and responsive layouts |
-| `assets/js/portfolio.js` | Language switch, mobile navigation and contact-form handling |
+| `assets/js/portfolio.js` | Language switch, section navigation, header measurement and contact-form handling |
 | `assets/images/sergii-home.jpg` | Full-length homepage portrait |
 | `assets/images/sergii-research.jpg` | Park-bench portrait on the research page |
 | `assets/images/sergii-contact.jpg` | Colour staircase portrait on the contact page |
@@ -29,6 +29,12 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | `THIRD_PARTY_NOTICES.md` | Asset origins, attribution and applicable third-party licences |
 
 The Ukrainian content is present in the HTML and remains usable without JavaScript. Each translated text element has a matching `data-en` attribute. The language switch also updates the document language, title, descriptions, navigation labels and cross-page links. English can be linked directly with `?lang=en`; an explicit switch is remembered locally when browser storage is available.
+
+## Navigation and layout
+
+The header includes Home, About, Expertise, Projects, HybridAEP and Contact. A native **Sections / Розділи** disclosure lists every main block of the current page, including PhD, the project tools, modules, workflow and future development. On smaller screens, the full menu is scrollable and can be closed with Escape. The current page or section is highlighted as the visitor moves through the site.
+
+Section navigation IDs sit on the first inner content container, rather than the padded outer section. Native anchor scrolling uses one clearance based on the measured sticky-header height. Keep this arrangement when adding sections so padding and anchor offsets do not accumulate. Portraits retain their full proportions; their desktop size also responds to the available viewport height. Research text aligns with the top of its portrait.
 
 ## Portraits
 

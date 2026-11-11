@@ -20,11 +20,11 @@
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://hybrid-res.github.io/research.html">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.4">
-  <script src="assets/js/portfolio.js?v=20261111.4" defer></script>
+  <link rel="stylesheet" href="assets/css/portfolio.css?v=20261111.5">
+  <script src="assets/js/portfolio.js?v=20261111.5" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Дослідження та проєкти — Сергій Хомутов", "description": "Наукові та інженерні напрями Сергія Хомутова: адаптивне керування гібридними енергосистемами, накопичення енергії та цифрові інструменти HybridAEP.", "url": "https://hybrid-res.github.io/research.html", "about": {"@type": "Person", "name": "Sergii Khomutov", "url": "https://hybrid-res.github.io/"}}</script>
 </head>
-<body id="top">
+<body id="top" data-page="research">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -52,11 +52,21 @@
         <span class="brand-word">Hybrid<span>—</span>RES</span>
       </a>
       <nav class="site-nav" id="site-navigation" aria-label="Основна навігація" data-label-en="Main navigation">
-        <a href="index.html#about" data-language-link><span data-en="About">Про мене</span></a>
-        <a href="index.html#expertise" data-language-link><span data-en="Expertise">Експертиза</span></a>
-        <a href="research.html" data-language-link aria-current="page"><span data-en="Projects">Проєкти</span></a>
-        <a href="hybridaep.html" data-language-link>HybridAEP</a>
-        <a href="contact.html" data-language-link><span data-en="Contact">Контакти</span></a>
+        <a href="index.html" data-language-link data-primary-link><span data-en="Home">Головна</span></a>
+        <a href="index.html#about" data-language-link data-primary-link><span data-en="About">Про мене</span></a>
+        <a href="index.html#expertise" data-language-link data-primary-link><span data-en="Expertise">Експертиза</span></a>
+        <a href="research.html" data-language-link data-primary-link aria-current="page"><span data-en="Projects">Проєкти</span></a>
+        <a href="hybridaep.html" data-language-link data-primary-link>HybridAEP</a>
+        <a href="contact.html" data-language-link data-primary-link><span data-en="Contact">Контакти</span></a>
+        <details class="section-menu">
+          <summary><span data-en="Sections">Розділи</span></summary>
+          <div class="section-menu-panel">
+            <p data-en="On this page" class="section-menu-caption">На цій сторінці</p>
+            <a href="#research-overview" data-section-link><span data-en="Overview">Огляд</span></a>
+<a href="#research-directions" data-section-link><span data-en="Research areas">Напрями досліджень</span></a>
+<a href="#research-contact" data-section-link><span data-en="Collaboration">Співпраця</span></a>
+          </div>
+        </details>
       </nav>
       <div class="header-actions">
         <div class="language-switch" role="group" aria-label="Мова сторінки" data-label-en="Page language">
@@ -70,7 +80,7 @@
 
   <main id="main">
     <section class="editorial-hero research-hero" aria-labelledby="research-title">
-      <div class="container editorial-grid">
+      <div class="container editorial-grid" id="research-overview">
         <div class="editorial-copy">
           <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-en="Research &amp; engineering projects">Наукові та інженерні проєкти</span></div>
           <h1 data-en="From research to engineering solutions." id="research-title" class="editorial-title">Від дослідження — до інженерного рішення.</h1>
@@ -87,8 +97,8 @@
       </div>
     </section>
 
-    <section class="section research-section" id="research-directions" aria-labelledby="research-directions-title">
-      <div class="container">
+    <section class="section research-section" aria-labelledby="research-directions-title">
+      <div class="container" id="research-directions">
         <div class="section-label"><span class="number">01</span><span data-en="My focus">Мій фокус</span></div>
         <div class="section-intro">
           <h2 data-en="What I’m working on." id="research-directions-title" class="section-heading">Над чим працюю.</h2>
@@ -114,7 +124,7 @@
     </section>
 
     <section class="project-contact" aria-labelledby="research-contact-title">
-      <div class="container project-contact-inner">
+      <div class="container project-contact-inner" id="research-contact">
         <div>
           <div class="section-label"><span class="number">02</span><span data-en="Working together">Спільні задачі</span></div>
           <h2 data-en="Working on a related research or engineering challenge?" id="research-contact-title" class="section-heading">Є спільна дослідницька або інженерна задача?</h2>
