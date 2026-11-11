@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="680" viewBox="0 0 900 680" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Wind and solar, considered as one landscape</title>
+  <desc id="desc">An original conceptual illustration of three wind turbines and a solar array on a contoured terrain model. The illustration does not represent measured project results.</desc>
+  <defs>
+    <linearGradient id="land" x1="295" y1="249" x2="594" y2="575" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#476763"/>
+      <stop offset="1" stop-color="#2A4547"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="104" y1="466" x2="804" y2="562" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B353C"/>
+      <stop offset=".52" stop-color="#29434A"/>
+      <stop offset="1" stop-color="#1A3039"/>
+    </linearGradient>
+    <linearGradient id="mast" x1="-8" y1="100" x2="9" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#76928E"/>
+      <stop offset=".48" stop-color="#F5F3EC"/>
+      <stop offset="1" stop-color="#A5BCB5"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="70" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#233F4C"/>
+      <stop offset="1" stop-color="#142E3B"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(461 351) rotate(90) scale(275 360)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70928A" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#70928A" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="site">
+      <path d="M96 411 430 237 811 435 478 608Z"/>
+    </clipPath>
+    <g id="solar-panel">
+      <path d="M2 7v39h70V7" stroke="#789994" stroke-width="1.1" opacity=".6"/>
+      <rect width="70" height="42" rx=".8" fill="url(#panel)" stroke="#A1BAB2" stroke-width="1.2"/>
+      <path d="M11.67 1v40M23.33 1v40M35 1v40M46.67 1v40M58.33 1v40M1 14h68M1 28h68" stroke="#628686" stroke-width=".65"/>
+      <path d="M1 1h68" stroke="#E7E9DD" stroke-opacity=".5"/>
+    </g>
+    <g id="turbine">
+      <ellipse cx="0" cy="194" rx="17" ry="7" fill="#1B343B" opacity=".55"/>
+      <path d="m-5 190 2.8-186h4.4L8 190c-3 4-9 5-13 0Z" fill="url(#mast)"/>
+      <path d="M-4 190c4 2 8 2 12 0" stroke="#E0E8DC" stroke-width=".8"/>
+      <path d="m-11-5 11-4 13 4v8L0 7l-11-4Z" fill="#DDE6DA"/>
+      <path d="m0 7 13-4v-8L0-1Z" fill="#8CA9A3"/>
+      <g stroke="#DDE6DA" stroke-linejoin="round" stroke-width=".6">
+        <path d="M0-1c-5-18-9-49-12-86l-3-9 7 4C3-63 10-24 8 0Z" fill="#F5F3EC"/>
+        <path d="m3 2 10-4c17 6 44 23 76 45l9 8-10-2C56 34 24 23 3 10Z" fill="#E2E9DE"/>
+        <path d="M0 3 6 11c-11 16-32 36-61 64l-12 7 4-9C-44 45-22 18 0 3Z" fill="#C2D1C7"/>
+      </g>
+      <circle cx="3" cy="3" r="7.4" fill="#F5F3EC"/>
+      <circle cx="4" cy="4" r="3.7" fill="#B9CCC1"/>
+    </g>
+  </defs>
+
+  <path fill="#142731" d="M0 0h900v680H0z"/>
+  <path fill="url(#halo)" d="M0 0h900v680H0z"/>
+
+  <!-- A quiet drawing field frames the terrain without suggesting data. -->
+  <g stroke="#7A9A94" stroke-width=".8" opacity=".16">
+    <path d="m73 427 360-188 399 207M105 445l360-188M137 462l360-188M169 479l360-188M201 496l360-188M233 513l360-188M265 530l360-188M297 547l360-188M329 564l360-188M361 581l360-188M393 598l360-188M425 615l360-188M457 632l360-188"/>
+    <path d="m103 411 396 207M135 394l396 207M167 377l396 207M199 360l396 207M231 343l396 207M263 326l396 207M295 309l396 207M327 292l396 207M359 275l396 207M391 258l396 207"/>
+  </g>
+
+  <path d="M96 411v31l382 199 333-175v-31L478 608Z" fill="url(#edge)"/>
+  <path d="m478 608 333-173v31L478 641Z" fill="#1D343D"/>
+  <path d="M96 411 430 237 811 435 478 608Z" fill="url(#land)" stroke="#84A298" stroke-width="1.2"/>
+  <path d="M96 430 478 629l333-174" stroke="#73938B" stroke-opacity=".18"/>
+  <path d="M478 608v33" stroke="#78988F" stroke-opacity=".25"/>
+
+  <g clip-path="url(#site)" fill="none" stroke="#A1BCAC" stroke-width="1" stroke-opacity=".27">
+    <path d="M59 423c64-24 102-37 151-35 56 2 57 22 101 14s56-67 106-73 82 35 132 56 137-4 190 21 87 69 120 76"/>
+    <path d="M55 411c68-31 101-42 154-41 60 0 57 26 103 16s54-70 106-75 83 39 133 58 136-6 194 22 86 69 117 79"/>
+    <path d="M64 394c60-31 101-44 150-42 54 3 55 30 99 15s55-74 108-72 84 43 131 57 141-8 197 24 76 66 114 78"/>
+    <path d="M71 376c59-29 98-47 144-43 53 5 52 33 99 16s56-78 110-70 84 45 131 56 140-10 198 26 78 66 113 75"/>
+    <path d="M90 352c48-25 81-40 124-37 56 5 57 38 105 14s56-74 107-68 83 51 131 58 140-10 201 27 77 65 112 74"/>
+    <path d="M83 440c61-24 83-37 128-35 59 4 69 20 110 13s58-53 104-54 72 26 116 41 150 2 194 20 83 60 116 71"/>
+    <path d="M104 456c54-19 71-32 113-28 58 5 69 18 113 10s56-42 100-39 66 21 109 34 144 3 187 18 72 48 106 64"/>
+    <path d="M124 475c52-17 69-29 111-23 56 7 70 14 105 6s52-31 96-28 63 20 104 31 132 1 177 15 71 37 102 52"/>
+    <path d="M150 492c45-15 66-24 104-19 53 7 61 10 94 4s51-22 89-18 65 19 99 28 126 1 172 15 63 28 91 43"/>
+    <path d="M177 509c43-12 65-19 103-12 44 8 55 4 79 0s43-10 79-6 59 14 97 23 117-3 162 10 59 25 88 37"/>
+    <path d="M211 528c39-8 60-13 92-8 40 6 50-1 73-1s40 2 69 6 53 12 88 16 109-3 153 8 56 21 83 32"/>
+    <path d="M246 545c35-8 61-6 92-3s42-2 65 0 77 21 127 23 99-5 139 6 55 20 78 28"/>
+    <path d="M276 563c39-7 67-3 99 0s42 0 70 7 45 17 81 19 92-4 134 6 50 16 76 24"/>
+    <path d="M311 580c39-2 63-4 95 2s64 26 111 29 95-5 132 8"/>
+  </g>
+
+  <!-- Maintenance paths connect the parts of the illustrative site. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="m212 470 87-43 90-29 48-50 68 26 81 32 71-24" stroke="#1A343B" stroke-opacity=".35" stroke-width="15"/>
+    <path d="m212 470 87-43 90-29 48-50 68 26 81 32 71-24" stroke="#B7BBA2" stroke-opacity=".55" stroke-width="8"/>
+    <path d="m486 369 39 27" stroke="#B7BBA2" stroke-opacity=".55" stroke-width="7"/>
+  </g>
+
+  <!-- Small surveying marks and foundations. -->
+  <g fill="#B9C9B7" stroke="#DFE4CE" stroke-width=".7">
+    <path d="m271 418 14-7 18 9-14 8Z"/>
+    <path d="m424 340 13-7 17 9-13 7Z"/>
+    <path d="m642 377 14-7 19 9-14 8Z"/>
+  </g>
+  <g stroke="#9EB5A9" stroke-width="1.2" opacity=".55">
+    <path d="m161 420 8-4m-6-2 4 8M457 281l8-4m-6-2 4 8M744 434l8-4m-6-2 4 8M479 575l8-4m-6-2 4 8"/>
+  </g>
+
+  <!-- Nine photovoltaic tables, drawn as an array rather than a data display. -->
+  <g transform="matrix(.8 .4 -.8 .4 500 396)">
+    <use href="#solar-panel"/>
+    <use href="#solar-panel" x="83"/>
+    <use href="#solar-panel" x="166"/>
+    <use href="#solar-panel" y="57"/>
+    <use href="#solar-panel" x="83" y="57"/>
+    <use href="#solar-panel" x="166" y="57"/>
+    <use href="#solar-panel" y="114"/>
+    <use href="#solar-panel" x="83" y="114"/>
+    <use href="#solar-panel" x="166" y="114"/>
+  </g>
+
+  <g stroke="#102B32" stroke-width="8" stroke-linecap="round" opacity=".23">
+    <path d="m437 343 71 41m150-8 71 43m-441 4 78 43"/>
+  </g>
+  <use href="#turbine" transform="translate(437 178) scale(.85)"/>
+  <use href="#turbine" transform="translate(658 204) scale(.9)"/>
+  <use href="#turbine" transform="translate(288 233)"/>
+
+  <!-- Fine wind ribbons add movement without animation or implied measurements. -->
+  <g stroke="#D6A65E" stroke-width="1.25" stroke-linecap="round" opacity=".65">
+    <path d="M109 234c31-7 41-21 73-18"/>
+    <path d="M122 248c23-5 36-13 49-15" opacity=".5"/>
+    <path d="M526 140c27-5 41-21 70-19"/>
+    <path d="M533 154c18-4 27-11 39-14" opacity=".5"/>
+    <path d="M729 304c23-4 43-17 65-15"/>
+    <path d="M742 318c18-4 28-11 38-13" opacity=".5"/>
+  </g>
+
+  <g fill="#D6A65E" opacity=".85">
+    <circle cx="99" cy="411" r="2.5"/>
+    <circle cx="430" cy="237" r="2.5"/>
+    <circle cx="808" cy="435" r="2.5"/>
+    <circle cx="478" cy="606" r="2.5"/>
+  </g>
+</svg>
