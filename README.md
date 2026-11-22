@@ -80,11 +80,11 @@ All image opens use local relative links; every image has bilingual alt text and
 
 The owner's email address is not included in the current HTML or JavaScript. All contact and demonstration calls to action lead to `contact.html`; HybridAEP links select that topic using `?topic=hybridaep`.
 
-**Current state: prepared, not activated.** The form has an empty `action` and `data-endpoint`, disabled fields and a visible availability notice. It does not submit or claim that a message has been sent. Connecting FormSubmit requires the owner's approval to provide their recipient email to that service and activation of the recipient address.
+**Current state: configured with an activated FormSubmit recipient (22 November 2026).** The owner confirmed activation, and the Gmail mailbox received the provider's one-time test submission. The activation-test email was tagged as spam by Gmail; mark FormSubmit deliveries "Not spam" before relying on notifications. The published form now uses the provider's opaque endpoint in both `action` and `data-endpoint`, **not a recipient email address**. Do not commit activation confirmation links, secret tokens or the recipient email address to the site.
 
-After approval and activation, set both `action` and `data-endpoint` to the exact opaque form URL provided by FormSubmit, such as `https://formsubmit.co/OPAQUE_FORM_ID`. Do not use an email address as the endpoint or commit an activation link, API key or private token. The published opaque submission ID is a public form identifier, not a secret.
+The form uses the native POST action as a progressive fallback when JavaScript is unavailable. With JavaScript enabled, the existing `portfolio.js` submits via FormSubmit's cross-origin AJAX endpoint and considers the operation successful only after an affirmative JSON response, preserving input on errors. A hidden honeypot field deters basic bots; provider-side anti-spam measures remain in place. The visitor sees a bilingual notice that their email/message pass through FormSubmit, with a link to the provider privacy policy.
 
-The frontend enables the form only for a valid opaque endpoint. It preserves input on a delivery error and treats success only as an affirmative service response. It sends the visitor's email, optional name, topic and message through the form provider; it does not put these values in URLs or browser storage. Keep the short form-provider and reply-purpose notice visible when activating delivery. Verify an actual test message arrives before reporting delivery as working.
+The owner must still verify a **new end-to-end submission from the published GitHub Pages contact form** after deployment and confirm receipt in Gmail (including Spam). The activation test confirmed provider-to-inbox routing but was not submitted from the live site. The public form URL is `https://hybrid-res.github.io/contact.html`.
 
 ## Maintenance checks
 
