@@ -281,6 +281,58 @@ ul, ol { padding: 0; list-style: none; }
 .form-status[data-state="idle"] { padding: 0; border: 0; background: transparent; }
 .form-privacy { margin-top: 14px; font-size: 11px; line-height: 1.65; color: var(--muted); }
 .form-privacy a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Five-project research portfolio: visual evidence is clearly labelled per project. */
+.showcase-section .section-intro { align-items: start; }
+.showcase-list { border-top: 1px solid var(--line); }
+.showcase-article { display: grid; grid-template-columns: minmax(0, .97fr) minmax(0, 1.03fr); gap: clamp(28px, 4.5vw, 62px); padding-block: 51px; border-bottom: 1px solid var(--line); align-items: start; }
+.showcase-article:nth-child(even) .showcase-figure { order: 2; }
+.showcase-figure { min-width: 0; }
+.showcase-image-link { display: block; position: relative; overflow: hidden; background: #edf1ed; border: 1px solid #cbd6d1; box-shadow: 0 16px 34px rgba(20,39,49,.08); }
+.showcase-image-link img { display: block; width: 100%; aspect-ratio: 16 / 10; height: auto; object-fit: contain; background: #fff; transition: transform .2s ease; }
+.showcase-image-link:hover img { transform: scale(1.025); }
+.showcase-zoom { position: absolute; right: 12px; top: 12px; width: 33px; height: 33px; display: grid; place-items: center; background: rgba(20,39,49,.88); color: #fff; font-size: 20px; line-height: 1; }
+.showcase-figure figcaption { margin-top: 12px; max-width: 580px; font-size: 11px; line-height: 1.6; color: var(--muted); }
+.showcase-copy { min-width: 0; }
+.showcase-topline { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 14px; margin-bottom: 15px; font-size: 10px; line-height: 1.35; letter-spacing: .045em; text-transform: uppercase; }
+.showcase-count { color: var(--teal); font-variant-numeric: tabular-nums; font-weight: 700; }
+.showcase-category { color: var(--muted); }
+.showcase-status { display: inline-block; padding: 5px 9px; background: #e5ebe4; color: #315c52; letter-spacing: .03em; }
+.showcase-status.is-concept { background: #eee5d5; color: #765631; }
+.showcase-title { font-size: clamp(26px, 2.7vw, 35px); line-height: 1.2; font-weight: 550; letter-spacing: -.035em; }
+.showcase-subtitle { color: var(--teal); font-size: 14px; font-weight: 600; line-height: 1.5; margin-top: 8px; }
+.showcase-description { color: var(--ink); font-size: 15px; line-height: 1.7; margin-top: 19px; }
+.showcase-logic { display: grid; gap: 0; margin: 22px 0 0; border-top: 1px solid var(--line); }
+.showcase-logic-item { display: grid; grid-template-columns: minmax(0, 106px) minmax(0, 1fr); gap: 16px; border-bottom: 1px solid var(--line); padding: 11px 0; }
+.showcase-logic dt { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .025em; line-height: 1.5; color: var(--teal); }
+.showcase-logic dd { margin: 0; font-size: 13px; line-height: 1.6; color: var(--muted); }
+.showcase-tools dd { color: var(--ink); }
+.showcase-more { margin-top: 20px; }
+.showcase-finance { margin-top: 20px; padding: 19px 20px; background: #ecefe9; }
+.showcase-finance h4 { margin: 0 0 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .055em; color: var(--teal); }
+.showcase-finance ul { display: grid; gap: 12px; }
+.showcase-finance li { display: grid; gap: 3px; }
+.showcase-finance strong { font-size: 13px; line-height: 1.4; font-weight: 600; }
+.showcase-finance small { font-size: 12px; line-height: 1.6; color: var(--muted); }
+.showcase-integrity-note { margin-top: 18px; font-size: 12px; color: var(--muted); line-height: 1.65; }
+@media (max-width: 900px) {
+  .showcase-article { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 36px; }
+  .showcase-article:nth-child(even) .showcase-figure { order: 0; }
+  .showcase-figure { max-width: 720px; }
+  .showcase-copy { max-width: 760px; }
+}
+@media (max-width: 640px) {
+  .showcase-article { padding-block: 30px; gap: 21px; }
+  .showcase-logic-item { grid-template-columns: minmax(0, 88px) minmax(0, 1fr); gap: 12px; }
+  .showcase-description { margin-top: 15px; }
+  .showcase-finance { padding: 16px; }
+}
+@media print {
+  .showcase-article { break-inside: avoid; }
+  .showcase-image-link { box-shadow: none; }
+  .showcase-zoom { display: none; }
+}
+
 @media (max-width: 1100px) {
   .container { width: calc(100% - 64px); }
   .header-inner { gap: 20px; }

@@ -15,7 +15,7 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | File | Purpose |
 | --- | --- |
 | `index.html` | Personal introduction, expertise and contact information |
-| `research.html` | Research directions and engineering projects |
+| `research.html` | Bilingual five-project engineering / research showcase with original portrait |
 | `hybridaep.html` | Short project presentation and six module summaries |
 | `contact.html` | Online enquiry form and a personal invitation to connect |
 | `assets/css/portfolio.css` | Shared visual design and responsive layouts |
@@ -24,6 +24,7 @@ Personal website, research interests and a concise introduction to the HybridAEP
 | `assets/images/sergii-research.jpg` | Park-bench portrait on the research page |
 | `assets/images/sergii-contact.jpg` | Colour staircase portrait on the contact page |
 | `assets/images/hybridaep-landscape.svg` | Original vector illustration; a conceptual site, not a simulation result |
+| `assets/images/projects/` | Five showcase graphics; only the BESS chart is a production-code generated demo |
 | `assets/images/favicon.svg` | SK monogram used in the header and browser tab |
 | `assets/images/tools/` | Official product marks used in the tools-and-data-sources section |
 | `assets/images/credentials/` | IVE and Uptime Institute logos, plus the owner's ATD certificate |
@@ -54,6 +55,26 @@ The project presentation intentionally contains no private application URLs, sou
 The personal profile includes the owner's supplied PhD qualification from the Institute of Renewable Energy of the National Academy of Sciences of Ukraine, in Electrical engineering, with Programme Subject Area Electrical power, electrical engineering and electromechanics. The profile also describes energy solutions for critical infrastructure, including telecommunications and data centers. No employer is named.
 
 The adjacent Uptime Institute card presents the owner's **Accredited Tier Designer (ATD)** certificate, number **3911**, dated **23 March 2021**, as shown in the original certificate. It does not assert a current validity period. Both credential cards have equal dimensions in the desktop grid and stack on smaller screens. The small certificate preview opens the unmodified, full-resolution local image in a new tab. The expertise order is critical infrastructure, research and tools, renewable energy, then power-system flexibility.
+
+## Research & project portfolio (November 2026)
+
+The pre-existing `research.html` is the only project index; no `projects.html` or unnecessary standalone project pages are created. The introductory portrait and hero stay intact. Five alternating, responsive horizontal showcase entries, each with **Objective → Approach → Key outcome → Tools**, have stable hash anchors:
+
+- `#shadow-bess` — Shadow BESS Lab / Shadow Trading and DAM Forecast Modeling.
+- `#gridlab` — GridLab / Critical Infrastructure Resilience Assessment.
+- `#wind-aep` — HybridRES Wind AEP.
+- `#solar-aep` — HybridRES Solar AEP.
+- `#energy-finance` — Energy Finance Lab / Energy Investment and Quant Analytics.
+
+The finance entry explicitly labels all three described modules (Investment, Market and Quantitative Risk Analysis) as a **concept**, not delivered functionality. GridLab describes **steady-state AC power-flow** and never implies verified real-site resilience or time-domain switching. Existing HybridAEP platform links are reused for Wind and Solar; no private app URLs, credentials or deployments are linked from the public site.
+
+**Graphic provenance / replacement:**
+
+- `assets/images/projects/shadow-bess.svg` is copied from `Hybrid-RES/shadowtraiding/docs/preview-chart-v0.2.1.svg`: the application-generated two-cycle chart, explicitly based on synthetic prices and volumes.
+- `gridlab.svg`, `wind-aep.svg`, and `solar-aep.svg` are original **conceptual illustrations**, not screenshots or calculated results. Replace each with a checked, redacted screenshot from the corresponding actual application when supplied; update the image title/alt/caption and format honestly.
+- `energy-finance.svg` is a conceptual illustration for a **planned** finance module, not a live software dashboard or financial calculation.
+
+All image opens use local relative links; every image has bilingual alt text and explanatory captions. English support uses the existing `data-en` mechanism, keeping Ukrainian visible without JavaScript. Update both languages when adding future projects or screenshot captions.
 
 ## Contact form
 
